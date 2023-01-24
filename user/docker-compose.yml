@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  
+  user:
+    build: .
+    command: "npm run start:dev"
+    environment:
+      PORT: 8001
+    volumes:
+      - .:/user
+    ports:
+      - "8005:8005"
+       # Port required for debugging with node
+      - "9224:9224"
+
+  
+ 
+volumes:
+  db: {}
+ 
