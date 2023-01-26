@@ -69,7 +69,7 @@ const authController = {
             maxAge: 24 * 30 * 60 * 60 * 1000, //30dias
           });
     
-          res.json({
+          res.status(200).json({
             msg: "Login completado",
             access_token,
             user: {
@@ -83,7 +83,7 @@ const authController = {
       logout: async (req: Request, res: Response) => {
         try {
           res.clearCookie("refreshtoken", { path: "/api/refresh_token" });
-          res.json({ msg: "Logged out" });
+          res.status(200).json({ msg: "Logged out" });
         } catch (err:any) {
           return res.status(500).json({ msg: err.message });
         }
